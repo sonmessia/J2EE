@@ -1,0 +1,94 @@
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Virtual machine crash logs
+hs_err_pid*
+replay_pid*
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.project
+.classpath
+
+# Build tools
+target/
+build/
+out/
+bin/
+dist/
+
+# Application logs
+logs/
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# Gradle
+.gradle/
+gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Spring Boot
+spring-boot-*.log
+
+# JBoss/WildFly
+*.ear.deployed
+*.war.deployed
+
+# Tomcat
+work/
+temp/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Configuration files with sensitive data
+application-*.properties
+application-*.yml
+!application.properties
+!application.yml
