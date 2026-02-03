@@ -1,0 +1,132 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Add New Book</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .header {
+        margin-bottom: 20px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      input[type="text"],
+      input[type="number"],
+      input[type="date"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      .btn {
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        color: white;
+      }
+      .btn-primary {
+        background-color: #007bff;
+      }
+      .btn-secondary {
+        background-color: #6c757d;
+      }
+      .btn-group {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      .error {
+        color: #dc3545;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+      .alert {
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 4px;
+      }
+      .alert-danger {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Add New Book</h1>
+        <a href="/books" class="btn btn-secondary">← Back to Books</a>
+      </div>
+
+      <div th:if="${error}" class="alert alert-danger" th:text="${error}">
+        An error occurred while adding the book.
+      </div>
+
+      <form th:action="@{/books/add}" method="post" th:object="${book}">
+        <div class="form-group">
+          <label for="title">Title *</label>
+          <input type="text" id="title" th:field="*{title}" required />
+          <div
+            th:if="${#fields.hasErrors('title')}"
+            th:errors="*{title}"
+            class="error"
+          >
+            Title error
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="author">Author *</label>
+          <input type="text" id="author" th:field="*{author}" required />
+          <div
+            th:if="${#fields.hasErrors('author')}"
+            th:errors="*{author}"
+            class="error"
+          >
+            Author error
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="price">Price *</label>
+          <input
+            type="number"
+            id="price"
+            th:field="*{price}"
+            step="0.01"
+            min="0"
+            required
+          />
+          <div
+            th:if="${#fields.hasErrors('price')}"
+            th:errors="*{price}"
+            class="error"
+          >
+            Price error
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <button type="submit" class="btn btn-primary">Save Book</button>
+          <a href="/books" class="btn btn-secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
