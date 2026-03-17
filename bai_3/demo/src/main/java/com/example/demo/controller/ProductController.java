@@ -48,7 +48,7 @@ public class ProductController {
       return "product/create";
     }
 
-    productService.updateImage(newProduct, imageProduct); // Xử lý ảnh
+    productService.updateImage(newProduct, imageProduct);
     Category selectedCategory = categoryService.get(categoryId);
     newProduct.setCategory(selectedCategory);
     productService.add(newProduct);
